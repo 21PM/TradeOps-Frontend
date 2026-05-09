@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -15,15 +16,18 @@ function Navbar() {
         </div>
         {/* <!-- Nav Links --> */}
         <nav className="flex items-center space-x-6 text-sm font-medium text-sf-text-dim">
-          <a
+          <NavLink
             className="bg-indigo-900/40 text-white px-4 py-4 -my-4 border-b-2 border-sf-accent-blue"
-            href="#"
+            to="/"
           >
             Trade Desk
-          </a>
-          <a className="hover:text-white transition-colors" href="#">
+          </NavLink>
+          <NavLink
+            className="hover:text-white transition-colors"
+            to="/portfolio"
+          >
             Portfolio
-          </a>
+          </NavLink>
           <button className="flex items-center hover:text-white transition-colors">
             More{" "}
             <svg
@@ -44,15 +48,24 @@ function Navbar() {
       </div>
       {/* <!-- Global Actions --> */}
       <div className="flex items-center space-x-3">
-        <button className="border border-sf-primary-blue text-sf-primary-blue hover:bg-sf-primary-blue hover:text-white px-6 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer">
+        <Link
+          to={"/signin"}
+          className="border border-sf-primary-blue text-sf-primary-blue hover:bg-sf-primary-blue hover:text-white px-6 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer"
+        >
           Sign In
-        </button>
-        <button className="border border-sf-primary-blue text-sf-primary-blue hover:bg-sf-primary-blue hover:text-white px-6 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer">
+        </Link>
+        <Link
+          to={"/signup"}
+          className="border border-sf-primary-blue text-sf-primary-blue hover:bg-sf-primary-blue hover:text-white px-6 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer"
+        >
           Sign Up
-        </button>
-        <button className="bg-sf-primary-blue hover:bg-indigo-500 px-6 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer">
+        </Link>
+        <Link
+          to={"/connect-account"}
+          className="bg-sf-primary-blue hover:bg-indigo-500 px-6 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer"
+        >
           Connect Account
-        </button>
+        </Link>
       </div>
     </header>
   );
